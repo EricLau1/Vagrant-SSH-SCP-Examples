@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+    - name: Criando Permissão com Chave Pública
+      become: yes
+      blockinfile:
+        marker: ""
+        marker_begin: ""
+        marker_end: ""
+        block: "{{ lookup('file', '../../ssh-keys/exemplo.pub') }}"
+        dest: /home/vagrant/.ssh/authorized_keys
